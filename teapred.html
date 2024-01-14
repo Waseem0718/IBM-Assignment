@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tea disease detection</title>
+    <link rel="Stylesheet" href="main.css" type="text/css">
+    <title>Tea</title>
+</head>
+<body background="pexels-min-an-911804.jpg">
+   <nav>
+       <div class='heading'>
+           <h4>Tea leaves disease prediction</h4>
+       </div>
+       <ul class='nav-links'>
+           <li><a  href="index.html">Home</a></li>
+           <li><a  href="about.html">About</a></li>
+           <li><a class="active" href="tea.html">Tea</a></li>
+           
+          
+       </ul>
+   </nav> 
+   <!---->
+          <div class="form-container">
+                <form action="/predict" method="post" enctype="multipart/form-data">
+                    <p>Select or choose the image for prediction:</p>
+                    <br><br>
+                   
+                    <input type="file" name="image" accept="image/*" onchange="previewImage(event)" required>
+
+                    <br><br>
+                    <img id="preview" class="cancer-image" src="#" alt="Preview Image" style="display: none;">
+                    <br><br>
+                    
+                    <button class="button" type="submit">Predict</button>
+                </form>
+            </div>
+        </div>
+    
+        <script>
+            function previewImage(event) {
+                var reader = new FileReader();
+                reader.onload = function() {
+                    var previewElement = document.getElementById('preview');
+                    previewElement.src = reader.result;
+                    previewElement.style.display = 'block';
+                };
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        </script>
+</body>
+</html>
